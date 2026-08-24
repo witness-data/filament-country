@@ -23,7 +23,7 @@ Then update your dependencies.
 First prepare your Eloquent model by casting the country field(s).
 
 ```php
-use WitnessData\FilamentCountry\CountrySelect;
+use WitnessData\FilamentCountry\Country;
 ...
     protected function casts(): array
     {

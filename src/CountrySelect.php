@@ -11,8 +11,9 @@ abstract class CountrySelect
     {
         return Select::make($name)
             ->searchable()
-            ->optionsLimit(0)
-            ->options(Country::class);
+            ->options(Country::class)
+            // We override the default of 50 options to display all countries at once.
+            ->optionsLimit(0);
     }
 
 }

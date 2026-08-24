@@ -4,6 +4,8 @@ FilamentCountry provides a CountrySelect component, for use in forms.
 
 This plugin provides a searchable select field that displays country flags and names. The selected country is stored using the ISO 3166-1 alpha-2 code.
 
+![Screenshot](docs/screenshot.png)
+
 ## Installation
 
 First require the library.

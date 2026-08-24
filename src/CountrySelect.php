@@ -4,16 +4,37 @@ namespace WitnessData\FilamentCountry;
 
 use Filament\Forms\Components\Select;
 
-abstract class CountrySelect
+class CountrySelect extends Select
 {
+    protected bool $displayFlagEmojis = true;
 
-    public static function make(?string $name = 'country'): Select
+    public static function make(?string $name = null): static
     {
-        return Select::make($name)
+        return parent::make($name)
+            ->displayFlagEmojis()
             ->searchable()
-            ->options(Country::class)
-            // We override the default of 50 options to display all countries at once.
             ->optionsLimit(0);
+    }
+
+    public function displayFlagEmojis(bool $condition = true): static
+    {
+        $this->displayFlagEmojis = $this->evaluate($condition);
+
+        $options = [];
+        foreach (Country::cases() as $country)
+            $options[$country->value] = $this->display($country);
+
+        $this->options($options);
+
+        return $this;
+    }
+
+    protected function display(Country $country): string
+    {
+        return match ($this->displayFlagEmojis) {
+            true => $country->getFlagEmoji() . ' ' . $country->getName(),
+            default => $country->getName(),
+        };
     }
 
 }

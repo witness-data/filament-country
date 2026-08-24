@@ -3,12 +3,13 @@
     "description": "A feature rich country select field, including flags, based on ISO 3166-1.",
     "type": "library",
     "license": "MIT",
+    "php": "^8.4",
     "autoload": {
         "psr-4": {
             "WitnessData\\FilamentCountry\\": "src/"
         }
     },
-    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "filament/forms": "^5.0",
         "spatie/laravel-package-tools": "^1.93"

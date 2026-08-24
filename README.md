@@ -41,11 +41,21 @@ You may use the CountrySelect field in your form's schema the same as any other 
 use WitnessData\FilamentCountry\CountrySelect;
 ...
 $schema->components([
-    ...
     CountrySelect::make('birth_country'),
-    ...
 ])
 ```
+
+You can turn off the flag emojis to display just the country names.
+
+```php
+use WitnessData\FilamentCountry\CountrySelect;
+...
+$schema->components([
+    CountrySelect::make('birth_country')
+        ->displayFlagEmojis(false),
+])
+```
+
 The CountrySelect can be modified using any of the functions used to customize a standard Filament Select. You can inject classes as normal.
 
 ```php

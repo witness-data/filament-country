@@ -28,12 +28,13 @@ First prepare your Eloquent model by casting the country field(s).
 
 ```php
 use WitnessData\FilamentCountry\Country;
-    protected function casts(): array
-    {
-        return [
-            'birth_country' => Country::class,
-        ];
-    }
+
+protected function casts(): array
+{
+    return [
+        'birth_country' => Country::class,
+    ];
+}
 ```
 
 ### Form schema:
@@ -42,6 +43,7 @@ You may use the CountrySelect field in your form's schema the same as any other 
 
 ```php
 use WitnessData\FilamentCountry\CountrySelect;
+
 $schema->components([
     CountrySelect::make('birth_country'),
 ])
@@ -51,6 +53,7 @@ You can turn off the flag emojis to display just the country names.
 
 ```php
 use WitnessData\FilamentCountry\CountrySelect;
+
 $schema->components([
     CountrySelect::make('birth_country')
         ->displayFlagEmojis(false),
@@ -60,6 +63,8 @@ $schema->components([
 The CountrySelect can be modified using any of the functions used to customize a standard Filament Select. You can inject classes as normal.
 
 ```php
+use WitnessData\FilamentCountry\CountrySelect;
+
 CountrySelect::make('birth_country')
     ->searchable(false)
     ->label(fn (?Model $record): string => $record->first_name . '\'s country of birth'),

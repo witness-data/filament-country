@@ -10,11 +10,15 @@ This plugin provides a searchable select field that displays country flags and n
 
 First require the library.
 
-`composer require witness-data/filament-country`
+```
+composer require witness-data/filament-country
+```
 
 Then update your dependencies.
 
-`composer update`
+```
+composer update
+```
 
 ## Usage
 
@@ -24,7 +28,6 @@ First prepare your Eloquent model by casting the country field(s).
 
 ```php
 use WitnessData\FilamentCountry\Country;
-...
     protected function casts(): array
     {
         return [
@@ -39,7 +42,6 @@ You may use the CountrySelect field in your form's schema the same as any other 
 
 ```php
 use WitnessData\FilamentCountry\CountrySelect;
-...
 $schema->components([
     CountrySelect::make('birth_country'),
 ])
@@ -49,7 +51,6 @@ You can turn off the flag emojis to display just the country names.
 
 ```php
 use WitnessData\FilamentCountry\CountrySelect;
-...
 $schema->components([
     CountrySelect::make('birth_country')
         ->displayFlagEmojis(false),
@@ -69,8 +70,6 @@ You may use a standard TextEntry to display country data in your infolist, assum
 
 ```php
 $schema->components([
-    ...
     TextEntry::make('birth_country')
-    ...
 ])
 ```

@@ -29,12 +29,9 @@ First prepare your Eloquent model by casting the country field(s).
 ```php
 use WitnessData\FilamentCountry\Country;
 
-protected function casts(): array
-{
-    return [
+protected $casts = [
         'birth_country' => Country::class,
-    ];
-}
+];
 ```
 
 ### Form schema:
